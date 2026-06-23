@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1450" height="930" viewBox="0 0 1450 930">
+  <defs>
+    <filter id="cardShadow" x="-20%" y="-25%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#172233" flood-opacity="0.12"/>
+    </filter>
+    <filter id="softShadow" x="-10%" y="-20%" width="120%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#172233" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L11,7 L2,12" fill="none" stroke="#9aa7b1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="greenArrow" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L11,7 L2,12" fill="none" stroke="#4fb39f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      .bg { fill: #fbfbfa; }
+      .title { font: 800 52px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #101418; }
+      .lane-title { font: 700 30px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #111820; }
+      .lane-user { fill: #fafbf9; stroke: #dfe3df; stroke-width: 2; filter: url(#softShadow); }
+      .lane-back { fill: #fbf8ff; stroke: #ddd8e9; stroke-width: 2; filter: url(#softShadow); }
+      .lane-ai { fill: #f7fbff; stroke: #d6e3ef; stroke-width: 2; filter: url(#softShadow); }
+      .step { fill: #ffffff; stroke: #edf0f2; stroke-width: 1; filter: url(#cardShadow); }
+      .step-text { font: 700 25px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #151a1f; }
+      .small-text { font: 16px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #6f7b85; }
+      .note { font: 18px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #687681; }
+      .arrow-line { stroke: #9aa7b1; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+      .green-line { stroke: #4fb39f; stroke-width: 2.5; fill: none; marker-end: url(#greenArrow); }
+      .icon { fill: none; stroke: #111820; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+      .muted-icon { fill: none; stroke: #c7ced4; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+      .accent { fill: #4fb39f; }
+      .ai-label { font: 700 25px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #22282e; }
+      .badge { fill: #ffffff; stroke: #d7dce0; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1450" height="930"/>
+  <text class="title" x="725" y="82" text-anchor="middle">系统处理流程</text>
+
+  <!-- User lane -->
+  <text class="lane-title" x="82" y="142">用户操作区</text>
+  <rect class="lane-user" x="70" y="160" width="1310" height="205" rx="36"/>
+  <g transform="translate(103 224)">
+    <path class="muted-icon" d="M0 0 h34 v22 h-34 z"/>
+    <path class="muted-icon" d="M17 32 v54"/>
+    <path class="muted-icon" d="M2 70 l15 16 l15 -16"/>
+  </g>
+
+  <rect class="step" x="180" y="188" width="230" height="145" rx="22"/>
+  <g transform="translate(263 214)">
+    <path class="icon" d="M32 0 v56"/>
+    <path class="icon" d="M13 30 l19 26 l19 -26"/>
+    <path class="icon" d="M0 72 h64 v20 h-64 z"/>
+  </g>
+  <text class="step-text" x="295" y="310" text-anchor="middle">上传老照片</text>
+
+  <path class="arrow-line" d="M410 260 H498"/>
+
+  <rect class="step" x="508" y="188" width="230" height="145" rx="22"/>
+  <g transform="translate(590 213)">
+    <circle class="icon" cx="34" cy="34" r="22"/>
+    <circle class="icon" cx="34" cy="34" r="8"/>
+    <path class="icon" d="M34 0 v10 M34 58 v10 M0 34 h10 M58 34 h10 M10 10 l8 8 M58 10 l-8 8 M10 58 l8 -8 M58 58 l-8 -8"/>
+  </g>
+  <text class="step-text" x="623" y="310" text-anchor="middle">选择修复模式</text>
+  <text class="small-text" x="623" y="334" text-anchor="middle">超分 / 人脸清晰化</text>
+
+  <path class="arrow-line" d="M738 260 H826"/>
+
+  <rect class="step" x="836" y="188" width="230" height="145" rx="22"/>
+  <g transform="translate(916 216)">
+    <circle cx="20" cy="22" r="12" fill="#c5c9ce"/>
+    <circle cx="72" cy="66" r="12" fill="#c5c9ce"/>
+    <path class="icon" d="M84 10 L12 82"/>
+    <path class="icon" d="M48 8 v78" stroke-dasharray="8 10"/>
+  </g>
+  <text class="step-text" x="951" y="310" text-anchor="middle">滑块对比</text>
+
+  <path class="arrow-line" d="M1066 260 H1154"/>
+
+  <rect class="step" x="1164" y="188" width="230" height="145" rx="22"/>
+  <g transform="translate(1248 214)">
+    <path class="icon" d="M32 0 v56"/>
+    <path class="icon" d="M13 30 l19 26 l19 -26"/>
+    <path class="icon" d="M0 72 h64 v20 h-64 z"/>
+  </g>
+  <text class="step-text" x="1279" y="310" text-anchor="middle">保存或下载</text>
+  <path class="arrow-line" d="M1394 260 H1430"/>
+
+  <!-- Backend lane -->
+  <text class="lane-title" x="82" y="432">后端处理区</text>
+  <rect class="lane-back" x="70" y="450" width="1310" height="205" rx="36"/>
+  <g transform="translate(103 516)">
+    <path class="muted-icon" d="M0 0 h34 v22 h-34 z"/>
+    <path class="muted-icon" d="M17 32 v54"/>
+    <path class="muted-icon" d="M2 70 l15 16 l15 -16"/>
+  </g>
+
+  <rect class="step" x="180" y="478" width="230" height="145" rx="22"/>
+  <g transform="translate(263 502)">
+    <path class="icon" d="M12 0 h42 l18 18 v70 h-60 z"/>
+    <path class="icon" d="M54 0 v20 h18"/>
+    <path class="icon" d="M24 38 h34 M24 56 h34"/>
+    <circle class="badge" cx="68" cy="75" r="14"/>
+    <path class="icon" d="M61 75 l6 6 l13 -15" stroke-width="4"/>
+  </g>
+  <text class="step-text" x="295" y="600" text-anchor="middle">参数校验</text>
+
+  <path class="green-line" d="M410 550 H498"/>
+
+  <rect class="step" x="508" y="478" width="230" height="145" rx="22"/>
+  <g transform="translate(590 506)">
+    <circle class="icon" cx="34" cy="34" r="30"/>
+    <circle class="icon" cx="34" cy="34" r="14"/>
+    <path class="icon" d="M34 4 v10 M34 54 v10 M4 34 h10 M54 34 h10"/>
+    <path class="icon" d="M34 34 l20 -18"/>
+  </g>
+  <text class="step-text" x="623" y="600" text-anchor="middle">创建异步任务</text>
+  <text class="small-text" x="623" y="624" text-anchor="middle">记录状态与进度</text>
+
+  <path class="green-line" d="M738 550 H826"/>
+  <text class="ai-label" x="782" y="535" text-anchor="middle">AI</text>
+
+  <rect class="step" x="836" y="478" width="230" height="145" rx="22"/>
+  <g transform="translate(916 504)">
+    <path class="icon" d="M44 10 C30 8 20 18 20 32 C8 36 4 48 10 60 C4 72 14 86 28 84 C34 94 52 92 56 78 V18 C54 14 50 11 44 10 Z"/>
+    <path class="icon" d="M62 18 v60 C66 92 84 94 90 84 C104 86 114 72 108 60 C114 48 110 36 98 32 C98 18 86 8 72 10"/>
+    <path class="icon" d="M36 30 c8 0 14 6 14 14 M78 30 c-8 0 -14 6 -14 14"/>
+  </g>
+  <text class="step-text" x="951" y="600" text-anchor="middle">调用模型服务</text>
+  <text class="small-text" x="951" y="624" text-anchor="middle">Real-ESRGAN / GFPGAN</text>
+
+  <path class="green-line" d="M1066 550 H1154"/>
+
+  <rect class="step" x="1164" y="478" width="230" height="145" rx="22"/>
+  <g transform="translate(1249 506)">
+    <path class="icon" d="M0 42 l26 26 l64 -64"/>
+  </g>
+  <text class="step-text" x="1279" y="600" text-anchor="middle">写入历史记录</text>
+  <text class="small-text" x="1279" y="624" text-anchor="middle">返回修复结果</text>
+  <path class="arrow-line" d="M1394 550 H1430"/>
+
+  <!-- AI lane -->
+  <text class="lane-title" x="82" y="722">AI 模型服务区</text>
+  <rect class="lane-ai" x="70" y="735" width="1310" height="135" rx="30"/>
+
+  <rect class="step" x="182" y="755" width="278" height="88" rx="18"/>
+  <g transform="translate(220 774)">
+    <rect class="icon" x="0" y="0" width="42" height="42" rx="4" stroke-width="4"/>
+    <path class="icon" d="M7 34 l12 -14 l9 9 l7 -8 l7 13" stroke-width="4"/>
+  </g>
+  <text class="step-text" x="346" y="801" text-anchor="middle">Real-ESRGAN</text>
+  <text class="small-text" x="346" y="826" text-anchor="middle">图像超分增强</text>
+
+  <path class="green-line" d="M460 800 H535"/>
+
+  <rect class="step" x="545" y="755" width="278" height="88" rx="18"/>
+  <g transform="translate(584 773)">
+    <path class="icon" d="M20 0 C8 4 4 16 8 28 C2 38 9 52 22 50 C27 58 42 56 44 44 V10 C40 2 30 -2 20 0 Z" stroke-width="4"/>
+    <path class="icon" d="M50 10 v34 C52 56 67 58 72 50 C85 52 92 38 86 28 C90 16 86 4 74 0" stroke-width="4"/>
+  </g>
+  <text class="step-text" x="709" y="801" text-anchor="middle">GFPGAN</text>
+  <text class="small-text" x="709" y="826" text-anchor="middle">人脸清晰化</text>
+
+  <path class="green-line" d="M823 800 H898"/>
+
+  <rect class="step" x="908" y="755" width="278" height="88" rx="18"/>
+  <g transform="translate(948 774)">
+    <rect class="icon" x="6" y="0" width="34" height="42" rx="4" fill="#ffffff" stroke-width="4"/>
+    <path class="icon" d="M0 10 h6 M0 22 h6 M0 34 h6 M40 10 h6 M40 22 h6 M40 34 h6" stroke-width="4"/>
+  </g>
+  <text class="step-text" x="1072" y="801" text-anchor="middle">SmolVLM</text>
+  <text class="small-text" x="1072" y="826" text-anchor="middle">相册智能分类</text>
+
+  <text class="note" x="725" y="890" text-anchor="middle">说明：自动综合修复需接入真实综合修复链路；当前主要生效能力为超分增强与人脸清晰化。</text>
+</svg>

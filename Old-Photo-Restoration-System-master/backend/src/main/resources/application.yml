@@ -1,0 +1,101 @@
+spring:
+  application:
+    name: photo-restoration-system
+
+  datasource:
+    username: root
+    password: 123123123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/photo_restoration?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    timeout: 60000
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+
+  # 文件上传大小限制
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 60MB
+
+  mail:
+    host: smtp.qq.com
+    port: 587
+    username: ""
+    password: ""
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+logging:
+  level:
+    root: INFO
+    com.photorestoration: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+# 文件上传配置
+file:
+  upload:
+    path: ./uploads/images/
+    max-size: 50MB
+    allowed-types: jpg,jpeg,png,gif,bmp,tiff
+
+# JWT配置
+jwt:
+  secret: photo-restoration-secret-key-2026
+  expiration: 86400000  # 24小时
+
+# 系统配置
+system:
+  max-concurrent-tasks: 10
+  task-timeout: 3600  # 秒
+  model-path: /models/  # 深度学习模型路径
+
+# AI服务配置
+ai:
+  esrgan:
+    base-url: http://127.0.0.1:8000
+    enhance-path: /enhance
+    model-name: RealESRGAN_x4plus
+    outscale: 4
+    denoise-strength: 0.5
+    tile: 0
+    tile-pad: 10
+    pre-pad: 0
+    fp32: false
+    face-enhance: false
+    # 配置结果目录后，可根据 result_url 推断本地绝对路径（用于“保存到相册”）
+    results-dir: D:/Engineering/PhotoProject/Real-ESRGAN/api_results
+  face-restore:
+    base-url: http://127.0.0.1:5001
+    restore-path: /restore
+    weight: 0.5
+  inpaint:
+    base-url: http://127.0.0.1:5002
+    inpaint-path: /inpaint
+    radius: 3
+    # auto: 有 LaMa 配置时优先深度补全，否则 OpenCV/PIL 兜底；lama: 强制 LaMa；opencv: 强制传统修复
+    model: auto
+    prompt: old damaged photo restoration, realistic texture, natural details
+  classifier:
+    base-url: http://127.0.0.1:5000
+    generate-path: /generate
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true

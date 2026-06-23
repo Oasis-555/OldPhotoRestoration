@@ -1,0 +1,72 @@
+# Build outputs
+dist/
+build/
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Dependencies and virtual environments
+node_modules/
+.venv/
+.venv_models/
+venv/
+env/
+__pycache__/
+*.pyc
+
+# Large model weights and local model folders
+models/*.pt
+models/*.pth
+models/*.ckpt
+models/*.safetensors
+SmolVLM-Cap-0.6B/
+**/weights/
+**/experiments/pretrained_models/
+
+# Runtime generated images and uploads
+inpaint_results/
+Real-ESRGAN/api_results/
+Real-ESRGAN/inputs/
+GFPGAN/results/
+Old-Photo-Restoration-System-master/backend/uploads/
+
+# Logs and crash reports
+*.log
+*.out.log
+*.err.log
+hs_err_pid*.log
+replay_pid*.log
+.logs/
+logs/
+
+# Archives
+*.zip
+*.rar
+*.tar
+*.tar.gz
+*.7z
+
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+
+# IDE and OS
+.idea/
+.vscode/
+*.iml
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Nested repository metadata backups
+**/.git-backup/

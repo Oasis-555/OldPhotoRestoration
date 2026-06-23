@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="820" viewBox="0 0 1700 820">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#0f2233" flood-opacity="0.12"/>
+    </filter>
+    <style>
+      .bg { fill: #f4f7fa; }
+      .title { font: 700 48px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #1f3b55; }
+      .card { fill: #ffffff; stroke: #e7edf2; stroke-width: 1; filter: url(#shadow); }
+      .icon { fill: none; stroke: #2f9be2; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .icon-fill { fill: #2f9be2; stroke: none; }
+      .head { font: 700 28px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #18324a; }
+      .rule { stroke: #e4e9ee; stroke-width: 2; }
+      .label { font: 700 20px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #2793d8; }
+      .body { font: 17px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #586979; }
+      .check { fill: #2f9be2; }
+      .checkmark { fill: none; stroke: #ffffff; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1700" height="820"/>
+  <text class="title" x="850" y="105" text-anchor="middle">系统核心模型</text>
+
+  <!-- GFPGAN -->
+  <rect class="card" x="55" y="165" width="365" height="565" rx="12"/>
+  <g transform="translate(92 215)">
+    <path class="icon" d="M18 4 L50 16 L50 46 C50 66 34 78 18 84 C2 78 -14 66 -14 46 L-14 16 Z"/>
+    <circle class="icon" cx="18" cy="35" r="10"/>
+    <path class="icon" d="M0 65 C5 52 31 52 36 65"/>
+  </g>
+  <text class="head" x="145" y="247">GFPGAN 人脸修复</text>
+  <line class="rule" x1="92" y1="275" x2="385" y2="275"/>
+  <text class="label" x="92" y="318">核心功能：人脸细节修复与增强</text>
+  <text class="body" x="92" y="354">面向低清、模糊、退化老照片中的人脸区域。</text>
+
+  <g transform="translate(92 405)">
+    <circle class="check" cx="10" cy="10" r="10"/>
+    <path class="checkmark" d="M5 10 L9 14 L16 6"/>
+    <text class="body" x="32" y="7">
+      <tspan x="32" dy="0">使用 GFPGAN v1.3 预训练权重，</tspan>
+      <tspan x="32" dy="28">修复退化人脸细节</tspan>
+    </text>
+  </g>
+  <g transform="translate(92 487)">
+    <circle class="check" cx="10" cy="10" r="10"/>
+    <path class="checkmark" d="M5 10 L9 14 L16 6"/>
+    <text class="body" x="32" y="7">
+      <tspan x="32" dy="0">paste_back 将修复人脸贴回原图；</tspan>
+      <tspan x="32" dy="28">weight=0.5 控制增强强度</tspan>
+    </text>
+  </g>
+  <g transform="translate(92 569)">
+    <circle class="check" cx="10" cy="10" r="10"/>
+    <path class="checkmark" d="M5 10 L9 14 L16 6"/>
+    <text class="body" x="32" y="7">
+      <tspan x="32" dy="0">封装为 Flask /restore 接口，</tspan>
+      <tspan x="32" dy="28">供后端人脸清晰化模式调用</tspan>
+    </text>
+  </g>
+
+  <!-- Real-ESRGAN -->
+  <rect class="card" x="465" y="165" width="365" height="565" rx="12"/>
+  <g transform="translate(505 210)">
+    <rect class="icon" x="-4" y="0" width="46" height="46" rx="3"/>
+    <circle class="icon" cx="10" cy="13" r="5"/>
+    <path class="icon" d="M1 42 L16 25 L27 36 L34 29 L42 42"/>
+  </g>
+  <text class="head" x="558" y="233">Real-ESRGAN</text>
+  <text class="head" x="558" y="270">图像超分</text>
+  <line class="rule" x1="505" y1="296" x2="795" y2="296"/>
+  <text class="label" x="505" y="337">核心功能：图像放大与清晰度增强</text>
+  <text class="body" x="505" y="373">用于照片超分辨率重建，提升尺寸和局部细节。</text>
+
+  <g transform="translate(505 418)">
+    <circle class="check" cx="10" cy="10" r="10"/>
+    <path class="checkmark" d="M5 10 L9 14 L16 6"/>
+    <text class="body" x="32" y="7">
+      <tspan x="32" dy="0">默认模型为 RealESRGAN_x4plus，</tspan>
+      <tspan x="32" dy="28">配置 outscale=4</tspan>
+    </text>
+  </g>
+  <g transform="translate(505 500)">
+    <circle class="check" cx="10" cy="10" r="10"/>
+    <path class="checkmark" d="M5 10 L9 14 L16 6"/>
+    <text class="body" x="32" y="7">
+      <tspan x="32" dy="0">支持 x2plus、x4plus 与 anime</tspan>
+      <tspan x="32" dy="28">等官方模型选择</tspan>
+    </text>
+  </g>
+  <g transform="translate(505 582)">
+    <circle class="check" cx="10" cy="10" r="10"/>
+    <path class="checkmark" d="M5 10 L9 14 L16 6"/>
+    <text class="body" x="32" y="7">
+      <tspan x="32" dy="0">封装为 FastAPI /enhance 接口，</tspan>
+      <tspan x="32" dy="28">带模型缓存与分块推理</tspan>
+    </text>
+  </g>
+
+  <!-- LaMa -->
+  <rect class="card" x="875" y="165" width="365" height="565" rx="12"/>
+  <g transform="translate(918 212)">
+    <rect class="icon" x="0" y="2" width="46" height="54" rx="6"/>
+    <path class="icon" d="M12 17 H34 M12 30 H30 M12 43 H24"/>
+    <path class="icon" d="M58 8 C76 20 76 44 58 56"/>
+    <path class="icon" d="M66 16 C78 27 78 38 66 49"/>
+  </g>
+  <text class="head" x="1000" y="233">LaMa 图像补全</text>
+  <text class="head" x="1000" y="270">缺损区域重建</text>
+  <line class="rule" x1="918" y1="296" x2="1205" y2="296"/>
+  <text class="label" x="918" y="337">核心功能：大面积破损与遮挡补全</text>
+  <text class="body" x="918" y="373">根据手动涂抹 mask，对撕裂、缺块区域重建。</text>
+
+  <g transform="translate(918 418)">
+    <circle class="check" cx="10" cy="10" r="10"/>
+    <path class="checkmark" d="M5 10 L9 14 L16 6"/>
+    <text class="body" x="32" y="7">
+      <tspan x="32" dy="0">使用 big-lama.pt 本地权重，</tspan>
+      <tspan x="32" dy="28">通过 simple-lama-inpainting 加载</tspan>
+    </text>
+  </g>
+  <g transform="translate(918 500)">
+    <circle class="check" cx="10" cy="10" r="10"/>
+    <path class="checkmark" d="M5 10 L9 14 L16 6"/>
+    <text class="body" x="32" y="7">
+      <tspan x="32" dy="0">封装为 Flask /inpaint 接口，</tspan>
+      <tspan x="32" dy="28">服务端口为 5002</tspan>
+    </text>
+  </g>
+  <g transform="translate(918 582)">
+    <circle class="check" cx="10" cy="10" r="10"/>
+    <path class="checkmark" d="M5 10 L9 14 L16 6"/>
+    <text class="body" x="32" y="7">
+      <tspan x="32" dy="0">具备大感受野与语义补全能力，</tspan>
+      <tspan x="32" dy="28">适合不规则 mask 与大面积缺损</tspan>
+    </text>
+  </g>
+
+  <!-- SmolVLM -->
+  <rect class="card" x="1285" y="165" width="365" height="565" rx="12"/>
+  <g transform="translate(1325 210)">
+    <rect class="icon" x="8" y="0" width="34" height="50" rx="4"/>
+    <path class="icon" d="M0 10 H8 M0 22 H8 M0 34 H8 M42 10 H50 M42 22 H50 M42 34 H50"/>
+  </g>
+  <text class="head" x="1380" y="233">SmolVLM-Cap-0.6B</text>
+  <text class="head" x="1380" y="270">图片智能分类</text>
+  <line class="rule" x1="1325" y1="296" x2="1615" y2="296"/>
+  <text class="label" x="1325" y="337">核心功能：图像理解与相册打标</text>
+  <text class="body" x="1325" y="373">根据图片内容输出家庭相册标签，不参与修复。</text>
+
+  <g transform="translate(1325 418)">
+    <circle class="check" cx="10" cy="10" r="10"/>
+    <path class="checkmark" d="M5 10 L9 14 L16 6"/>
+    <text class="body" x="32" y="7">
+      <tspan x="32" dy="0">通过 ModelScope 加载本地</tspan>
+      <tspan x="32" dy="28">SmolVLM-Cap-0.6B 模型</tspan>
+    </text>
+  </g>
+  <g transform="translate(1325 500)">
+    <circle class="check" cx="10" cy="10" r="10"/>
+    <path class="checkmark" d="M5 10 L9 14 L16 6"/>
+    <text class="body" x="32" y="7">
+      <tspan x="32" dy="0">输入图片 + 中文提示词，</tspan>
+      <tspan x="32" dy="28">输出人物、风景、建筑等标签</tspan>
+    </text>
+  </g>
+  <g transform="translate(1325 582)">
+    <circle class="check" cx="10" cy="10" r="10"/>
+    <path class="checkmark" d="M5 10 L9 14 L16 6"/>
+    <text class="body" x="32" y="7">
+      <tspan x="32" dy="0">封装为 Flask /generate 接口，</tspan>
+      <tspan x="32" dy="28">供后端相册自动分类调用</tspan>
+    </text>
+  </g>
+</svg>

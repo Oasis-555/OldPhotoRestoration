@@ -1,0 +1,12 @@
+flask
+pillow
+numpy
+
+# Recommended for better inpainting quality. The service falls back to
+# a Pillow/Numpy implementation when OpenCV is unavailable.
+opencv-python
+
+# Optional LaMa backend. Install this when you want deep-learning inpainting
+# through the built-in simple-lama path. You can also use the official LaMa CLI
+# by setting LAMA_REPO and LAMA_MODEL_PATH without installing this package.
+simple-lama-inpainting

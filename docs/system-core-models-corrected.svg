@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1450" height="800" viewBox="0 0 1450 800">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#0f2233" flood-opacity="0.12"/>
+    </filter>
+    <style>
+      .bg { fill: #f4f7fa; }
+      .title { font: 700 48px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #1f3b55; }
+      .card { fill: #ffffff; stroke: #e7edf2; stroke-width: 1; filter: url(#shadow); }
+      .icon { fill: none; stroke: #2f9be2; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .head { font: 700 30px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #18324a; }
+      .rule { stroke: #e4e9ee; stroke-width: 2; }
+      .label { font: 700 22px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #2793d8; }
+      .body { font: 18px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #586979; }
+      .body-strong { font: 700 18px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #586979; }
+      .check { fill: #2f9be2; }
+      .checkmark { fill: none; stroke: #ffffff; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+      .note { font: 16px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #81909d; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1450" height="800"/>
+  <text class="title" x="725" y="105" text-anchor="middle">系统核心模型</text>
+
+  <!-- Card 1 -->
+  <rect class="card" x="75" y="165" width="390" height="545" rx="12"/>
+  <g transform="translate(112 213)">
+    <path class="icon" d="M18 6 L50 18 L50 46 C50 66 34 78 18 84 C2 78 -14 66 -14 46 L-14 18 Z"/>
+    <circle class="icon" cx="18" cy="35" r="10"/>
+    <path class="icon" d="M0 65 C5 52 31 52 36 65"/>
+  </g>
+  <text class="head" x="165" y="247">GFPGAN 人脸修复</text>
+  <line class="rule" x1="112" y1="275" x2="428" y2="275"/>
+  <text class="label" x="112" y="318">核心功能：人脸细节修复与增强</text>
+  <text class="body" x="112" y="354">面向低清、模糊、退化老照片中的人脸区域。</text>
+
+  <g transform="translate(112 398)">
+    <circle class="check" cx="10" cy="10" r="10"/>
+    <path class="checkmark" d="M5 10 L9 14 L16 6"/>
+    <text class="body" x="32" y="7">
+      <tspan x="32" dy="0">使用 GFPGAN v1.3 预训练权重，</tspan>
+      <tspan x="32" dy="28">修复退化人脸细节</tspan>
+    </text>
+  </g>
+  <g transform="translate(112 472)">
+    <circle class="check" cx="10" cy="10" r="10"/>
+    <path class="checkmark" d="M5 10 L9 14 L16 6"/>
+    <text class="body" x="32" y="7">
+      <tspan x="32" dy="0">paste_back 将修复后人脸贴回原图；</tspan>
+      <tspan x="32" dy="28">weight=0.5 控制保真与增强强度</tspan>
+    </text>
+  </g>
+  <g transform="translate(112 552)">
+    <circle class="check" cx="10" cy="10" r="10"/>
+    <path class="checkmark" d="M5 10 L9 14 L16 6"/>
+    <text class="body" x="32" y="7">
+      <tspan x="32" dy="0">可联动 Real-ESRGAN 做背景上采样，</tspan>
+      <tspan x="32" dy="28">当前后端在人脸模式调用该服务</tspan>
+    </text>
+  </g>
+
+  <!-- Card 2 -->
+  <rect class="card" x="530" y="165" width="390" height="545" rx="12"/>
+  <g transform="translate(572 210)">
+    <rect class="icon" x="-4" y="0" width="46" height="46" rx="3"/>
+    <circle class="icon" cx="10" cy="13" r="5"/>
+    <path class="icon" d="M1 42 L16 25 L27 36 L34 29 L42 42"/>
+  </g>
+  <text class="head" x="625" y="233">Real-ESRGAN</text>
+  <text class="head" x="625" y="270">图像超分</text>
+  <line class="rule" x1="572" y1="296" x2="885" y2="296"/>
+  <text class="label" x="572" y="337">核心功能：图像放大与清晰度增强</text>
+  <text class="body" x="572" y="373">用于照片超分辨率重建，提升尺寸和局部细节。</text>
+
+  <g transform="translate(572 418)">
+    <circle class="check" cx="10" cy="10" r="10"/>
+    <path class="checkmark" d="M5 10 L9 14 L16 6"/>
+    <text class="body" x="32" y="7">
+      <tspan x="32" dy="0">默认模型为 RealESRGAN_x4plus，</tspan>
+      <tspan x="32" dy="28">配置 outscale=4</tspan>
+    </text>
+  </g>
+  <g transform="translate(572 492)">
+    <circle class="check" cx="10" cy="10" r="10"/>
+    <path class="checkmark" d="M5 10 L9 14 L16 6"/>
+    <text class="body" x="32" y="7">
+      <tspan x="32" dy="0">服务支持多种官方模型选择，</tspan>
+      <tspan x="32" dy="28">包括 x2plus、x4plus 与 anime 模型</tspan>
+    </text>
+  </g>
+  <g transform="translate(572 572)">
+    <circle class="check" cx="10" cy="10" r="10"/>
+    <path class="checkmark" d="M5 10 L9 14 L16 6"/>
+    <text class="body" x="32" y="7">
+      <tspan x="32" dy="0">封装为 FastAPI /enhance 接口，</tspan>
+      <tspan x="32" dy="28">带模型缓存、分块推理等工程能力</tspan>
+    </text>
+  </g>
+
+  <!-- Card 3 -->
+  <rect class="card" x="985" y="165" width="390" height="545" rx="12"/>
+  <g transform="translate(1030 210)">
+    <rect class="icon" x="8" y="0" width="34" height="50" rx="4" fill="#2f9be2" stroke="none"/>
+    <path class="icon" d="M0 10 H8 M0 22 H8 M0 34 H8 M42 10 H50 M42 22 H50 M42 34 H50"/>
+  </g>
+  <text class="head" x="1085" y="233">SmolVLM-Cap-0.6B</text>
+  <text class="head" x="1085" y="270">图片智能分类</text>
+  <line class="rule" x1="1030" y1="296" x2="1340" y2="296"/>
+  <text class="label" x="1030" y="337">核心功能：图像理解与相册打标</text>
+  <text class="body" x="1030" y="373">根据图片内容输出家庭相册标签，不参与修复。</text>
+
+  <g transform="translate(1030 418)">
+    <circle class="check" cx="10" cy="10" r="10"/>
+    <path class="checkmark" d="M5 10 L9 14 L16 6"/>
+    <text class="body" x="32" y="7">
+      <tspan x="32" dy="0">通过 ModelScope 加载本地</tspan>
+      <tspan x="32" dy="28">SmolVLM-Cap-0.6B 模型</tspan>
+    </text>
+  </g>
+  <g transform="translate(1030 492)">
+    <circle class="check" cx="10" cy="10" r="10"/>
+    <path class="checkmark" d="M5 10 L9 14 L16 6"/>
+    <text class="body" x="32" y="7">
+      <tspan x="32" dy="0">输入图片 + 中文提示词，</tspan>
+      <tspan x="32" dy="28">输出人物、风景、建筑、合影等标签</tspan>
+    </text>
+  </g>
+  <g transform="translate(1030 572)">
+    <circle class="check" cx="10" cy="10" r="10"/>
+    <path class="checkmark" d="M5 10 L9 14 L16 6"/>
+    <text class="body" x="32" y="7">
+      <tspan x="32" dy="0">封装为 Flask /generate 接口，</tspan>
+      <tspan x="32" dy="28">供后端相册自动分类调用</tspan>
+    </text>
+  </g>
+</svg>

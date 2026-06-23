@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="920" viewBox="0 0 1500 920">
+  <defs>
+    <filter id="shadow" x="-20%" y="-25%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#1b2430" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrowGray" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2 2 L10 6 L2 10" fill="none" stroke="#9aa5ae" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2 2 L10 6 L2 10" fill="none" stroke="#48a996" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      .bg { fill: #fbfbfa; }
+      .title { font: 800 52px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #111820; }
+      .lane-title { font: 700 30px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #111820; }
+      .lane { stroke-width: 2; filter: url(#shadow); }
+      .lane1 { fill: #fbfcfa; stroke: #e1e5e1; }
+      .lane2 { fill: #fbf8ff; stroke: #ded8ea; }
+      .lane3 { fill: #f7fbff; stroke: #d5e4ef; }
+      .card { fill: white; stroke: #edf0f2; stroke-width: 1.2; filter: url(#shadow); }
+      .card-title { font: 700 24px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #171d23; }
+      .card-sub { font: 16px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #6a7782; }
+      .note { font: 17px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #687681; }
+      .arrow { stroke: #9aa5ae; stroke-width: 2.6; fill: none; marker-end: url(#arrowGray); }
+      .green-arrow { stroke: #48a996; stroke-width: 2.6; fill: none; marker-end: url(#arrowGreen); }
+      .icon { fill: none; stroke: #121820; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .icon-soft { fill: none; stroke: #48a996; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .badge { fill: #eef8f5; stroke: #48a996; stroke-width: 2; }
+      .badge-text { font: 700 18px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #2f8d7b; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1500" height="920"/>
+  <text class="title" x="750" y="78" text-anchor="middle">老照片修复系统处理流程</text>
+
+  <!-- User lane -->
+  <text class="lane-title" x="85" y="135">用户操作区</text>
+  <rect class="lane lane1" x="70" y="155" width="1360" height="210" rx="34"/>
+
+  <rect class="card" x="140" y="195" width="220" height="130" rx="22"/>
+  <g transform="translate(220 215)">
+    <path class="icon" d="M30 0 v45"/>
+    <path class="icon" d="M12 28 l18 18 l18 -18"/>
+    <path class="icon" d="M0 58 h60 v20 h-60 z"/>
+  </g>
+  <text class="card-title" x="250" y="295" text-anchor="middle">上传照片</text>
+  <text class="card-sub" x="250" y="318" text-anchor="middle">前端选择本地图片</text>
+
+  <path class="arrow" d="M360 260 H430"/>
+
+  <rect class="card" x="430" y="195" width="220" height="130" rx="22"/>
+  <g transform="translate(510 215)">
+    <circle class="icon" cx="30" cy="30" r="22"/>
+    <circle class="icon" cx="30" cy="30" r="8"/>
+    <path class="icon" d="M30 0 v9 M30 51 v9 M0 30 h9 M51 30 h9"/>
+  </g>
+  <text class="card-title" x="540" y="295" text-anchor="middle">选择模式</text>
+  <text class="card-sub" x="540" y="318" text-anchor="middle">超分 / 人脸清晰化</text>
+
+  <path class="arrow" d="M650 260 H720"/>
+
+  <rect class="card" x="720" y="195" width="220" height="130" rx="22"/>
+  <g transform="translate(795 216)">
+    <rect class="icon" x="0" y="0" width="70" height="50" rx="6"/>
+    <path class="icon" d="M35 0 v50"/>
+    <path class="icon-soft" d="M12 38 l12 -14 l10 10 l10 -12 l14 16"/>
+  </g>
+  <text class="card-title" x="830" y="295" text-anchor="middle">查看结果</text>
+  <text class="card-sub" x="830" y="318" text-anchor="middle">滑块或并排对比</text>
+
+  <path class="arrow" d="M940 260 H1010"/>
+
+  <rect class="card" x="1010" y="195" width="220" height="130" rx="22"/>
+  <g transform="translate(1090 215)">
+    <path class="icon" d="M30 0 v45"/>
+    <path class="icon" d="M12 28 l18 18 l18 -18"/>
+    <path class="icon" d="M0 58 h60 v20 h-60 z"/>
+  </g>
+  <text class="card-title" x="1120" y="295" text-anchor="middle">保存下载</text>
+  <text class="card-sub" x="1120" y="318" text-anchor="middle">存入相册或导出</text>
+
+  <path class="arrow" d="M1230 260 H1320"/>
+  <circle class="badge" cx="1355" cy="260" r="30"/>
+  <text class="badge-text" x="1355" y="267" text-anchor="middle">完成</text>
+
+  <!-- Backend lane -->
+  <text class="lane-title" x="85" y="430">后端处理区</text>
+  <rect class="lane lane2" x="70" y="450" width="1360" height="240" rx="34"/>
+
+  <rect class="card" x="118" y="500" width="205" height="135" rx="22"/>
+  <g transform="translate(192 520)">
+    <path class="icon" d="M8 0 h42 l18 18 v58 h-60 z"/>
+    <path class="icon" d="M50 0 v20 h18"/>
+    <path class="icon" d="M20 37 h34 M20 53 h28"/>
+  </g>
+  <text class="card-title" x="220" y="603" text-anchor="middle">接收请求</text>
+  <text class="card-sub" x="220" y="626" text-anchor="middle">保存原图文件</text>
+
+  <path class="green-arrow" d="M323 568 H380"/>
+
+  <rect class="card" x="380" y="500" width="205" height="135" rx="22"/>
+  <g transform="translate(456 521)">
+    <circle class="icon" cx="28" cy="28" r="25"/>
+    <path class="icon" d="M16 29 l9 9 l17 -20"/>
+    <path class="icon-soft" d="M28 58 v18"/>
+  </g>
+  <text class="card-title" x="482" y="603" text-anchor="middle">创建任务</text>
+  <text class="card-sub" x="482" y="626" text-anchor="middle">生成修复记录</text>
+
+  <path class="green-arrow" d="M585 568 H642"/>
+
+  <rect class="card" x="642" y="500" width="205" height="135" rx="22"/>
+  <g transform="translate(720 521)">
+    <circle class="icon" cx="28" cy="28" r="26"/>
+    <circle class="icon" cx="28" cy="28" r="10"/>
+    <path class="icon-soft" d="M28 2 v10 M28 44 v10 M2 28 h10 M44 28 h10"/>
+  </g>
+  <text class="card-title" x="744" y="603" text-anchor="middle">异步处理</text>
+  <text class="card-sub" x="744" y="626" text-anchor="middle">按模式分发任务</text>
+
+  <path class="green-arrow" d="M847 568 H904"/>
+
+  <rect class="card" x="904" y="500" width="205" height="135" rx="22"/>
+  <g transform="translate(980 520)">
+    <path class="icon" d="M28 0 C15 2 8 13 10 26 C0 32 0 48 12 55 C14 70 33 74 42 62 V12 C40 4 35 1 28 0 Z"/>
+    <path class="icon" d="M48 12 v50 C57 74 76 70 78 55 C90 48 90 32 80 26 C82 13 75 2 62 0"/>
+  </g>
+  <text class="card-title" x="1006" y="603" text-anchor="middle">模型推理</text>
+  <text class="card-sub" x="1006" y="626" text-anchor="middle">调用本地 AI 服务</text>
+
+  <path class="green-arrow" d="M1109 568 H1166"/>
+
+  <rect class="card" x="1166" y="500" width="205" height="135" rx="22"/>
+  <g transform="translate(1245 525)">
+    <path class="icon" d="M0 28 l22 22 l58 -58"/>
+  </g>
+  <text class="card-title" x="1268" y="603" text-anchor="middle">返回结果</text>
+  <text class="card-sub" x="1268" y="626" text-anchor="middle">更新状态与历史</text>
+
+  <!-- AI lane -->
+  <text class="lane-title" x="85" y="755">AI 模型服务区</text>
+  <rect class="lane lane3" x="70" y="775" width="1360" height="100" rx="30"/>
+
+  <rect class="card" x="190" y="798" width="260" height="54" rx="16"/>
+  <text class="card-title" x="320" y="832" text-anchor="middle">Real-ESRGAN 超分增强</text>
+
+  <rect class="card" x="620" y="798" width="260" height="54" rx="16"/>
+  <text class="card-title" x="750" y="832" text-anchor="middle">GFPGAN 人脸修复</text>
+
+  <rect class="card" x="1050" y="798" width="260" height="54" rx="16"/>
+  <text class="card-title" x="1180" y="832" text-anchor="middle">SmolVLM 相册分类</text>
+
+  <text class="note" x="750" y="900" text-anchor="middle">当前真实修复能力主要来自“超分增强”和“人脸清晰化”；自动综合修复仍需继续接入完整修复链路。</text>
+</svg>

@@ -1,0 +1,13 @@
+启动服务（推荐用你 yolo 环境的 python，最稳）：
+/home/jn/anaconda3/envs/yolo/bin/python -m uvicorn realesrgan_http_api:app --app-dir "/home/jn/pro/工程实践/Real-ESRGAN" --host 0.0.0.0 --port 8000
+
+健康检查：
+curl http://127.0.0.1:8000/healthz
+
+发送“本地图片绝对路径”：
+curl -X POST "http://127.0.0.1:8000/enhance" -H "Content-Type: application/json" -d '{"image":"/home/jn/pro/工程实践/Real-ESRGAN/inputs/0014.jpg","model_name":"RealESRGAN_x4plus","outscale":4,"face_enhance":false}'
+
+发送“网络图片 URL”：
+curl -X POST "http://127.0.0.1:8000/enhance" -H "Content-Type: application/json" -d '{"image":"https://example.com/a.jpg","model_name":"RealESRGAN_x4plus","outscale":4,"face_enhance":false}'
+
+返回里会包含 result_url，直接浏览器打开即可下载/查看（服务把结果挂在 GET /results/<文件名> 上）。

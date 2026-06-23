@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="820" viewBox="0 0 1500 820">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2f9be2"/>
+    </marker>
+    <style>
+      .bg { fill: #f5f7fa; }
+      .title { font: 700 44px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #1f3b55; }
+      .role { fill: #ffffff; stroke: #d9e4ef; stroke-width: 2; }
+      .role-text { font: 700 22px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #18324a; }
+      .line { stroke: #9aaebe; stroke-width: 2; stroke-dasharray: 8 8; }
+      .msg { stroke: #2f9be2; stroke-width: 3; marker-end: url(#arrow); }
+      .msg-back { stroke: #38a987; stroke-width: 3; marker-end: url(#arrow); }
+      .msg-text { font: 19px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #31475c; }
+      .note { fill: #ffffff; stroke: #d9e4ef; stroke-width: 2; }
+      .note-text { font: 18px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #586979; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1500" height="820"/>
+  <text class="title" x="750" y="70" text-anchor="middle">系统时序图</text>
+
+  <!-- Participants -->
+  <g>
+    <rect class="role" x="95" y="115" width="160" height="58" rx="8"/>
+    <text class="role-text" x="175" y="151" text-anchor="middle">用户</text>
+    <line class="line" x1="175" y1="173" x2="175" y2="715"/>
+  </g>
+
+  <g>
+    <rect class="role" x="345" y="115" width="180" height="58" rx="8"/>
+    <text class="role-text" x="435" y="151" text-anchor="middle">前端 Vue</text>
+    <line class="line" x1="435" y1="173" x2="435" y2="715"/>
+  </g>
+
+  <g>
+    <rect class="role" x="610" y="115" width="230" height="58" rx="8"/>
+    <text class="role-text" x="725" y="151" text-anchor="middle">后端 Spring Boot</text>
+    <line class="line" x1="725" y1="173" x2="725" y2="715"/>
+  </g>
+
+  <g>
+    <rect class="role" x="935" y="115" width="200" height="58" rx="8"/>
+    <text class="role-text" x="1035" y="151" text-anchor="middle">AI 模型服务</text>
+    <line class="line" x1="1035" y1="173" x2="1035" y2="715"/>
+  </g>
+
+  <g>
+    <rect class="role" x="1225" y="115" width="210" height="58" rx="8"/>
+    <text class="role-text" x="1330" y="151" text-anchor="middle">数据库/文件</text>
+    <line class="line" x1="1330" y1="173" x2="1330" y2="715"/>
+  </g>
+
+  <!-- Messages -->
+  <g>
+    <line class="msg" x1="175" y1="230" x2="435" y2="230"/>
+    <text class="msg-text" x="305" y="218" text-anchor="middle">上传照片 / 选择模式</text>
+  </g>
+
+  <g>
+    <line class="msg" x1="435" y1="300" x2="725" y2="300"/>
+    <text class="msg-text" x="580" y="288" text-anchor="middle">提交原图、mask、模式</text>
+  </g>
+
+  <g>
+    <line class="msg" x1="725" y1="370" x2="1330" y2="370"/>
+    <text class="msg-text" x="1028" y="358" text-anchor="middle">保存文件并创建修复任务</text>
+  </g>
+
+  <g>
+    <line class="msg" x1="725" y1="440" x2="1035" y2="440"/>
+    <text class="msg-text" x="880" y="428" text-anchor="middle">调用 LaMa / GFPGAN / Real-ESRGAN</text>
+  </g>
+
+  <g>
+    <line class="msg-back" x1="1035" y1="510" x2="725" y2="510"/>
+    <text class="msg-text" x="880" y="498" text-anchor="middle">返回修复结果路径</text>
+  </g>
+
+  <g>
+    <line class="msg" x1="725" y1="580" x2="1330" y2="580"/>
+    <text class="msg-text" x="1028" y="568" text-anchor="middle">保存结果并更新任务状态</text>
+  </g>
+
+  <g>
+    <line class="msg" x1="435" y1="650" x2="725" y2="650"/>
+    <text class="msg-text" x="580" y="638" text-anchor="middle">轮询查询任务状态</text>
+  </g>
+
+  <g>
+    <line class="msg-back" x1="725" y1="710" x2="435" y2="710"/>
+    <text class="msg-text" x="580" y="698" text-anchor="middle">返回完成状态和结果地址</text>
+  </g>
+
+  <g>
+    <line class="msg-back" x1="435" y1="760" x2="175" y2="760"/>
+    <text class="msg-text" x="305" y="748" text-anchor="middle">展示原图与修复图对比</text>
+  </g>
+</svg>
