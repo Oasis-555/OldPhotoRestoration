@@ -3,15 +3,15 @@ spring:
     name: photo-restoration-system
 
   datasource:
-    username: root
-    password: 123123123
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:}
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/photo_restoration?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    url: ${DB_URL:jdbc:mysql://localhost:3306/photo_restoration?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai}
 
   redis:
-    host: localhost
-    port: 6379
-    password:
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
+    password: ${REDIS_PASSWORD:}
     timeout: 60000
     lettuce:
       pool:
@@ -26,10 +26,10 @@ spring:
       max-request-size: 60MB
 
   mail:
-    host: smtp.qq.com
-    port: 587
-    username: ""
-    password: ""
+    host: ${MAIL_HOST:smtp.qq.com}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
     properties:
       mail:
         smtp:
@@ -57,7 +57,7 @@ file:
 
 # JWT配置
 jwt:
-  secret: photo-restoration-secret-key-2026
+  secret: ${JWT_SECRET:photo-restoration-secret-key-2026}
   expiration: 86400000  # 24小时
 
 # 系统配置
@@ -80,7 +80,7 @@ ai:
     fp32: false
     face-enhance: false
     # 配置结果目录后，可根据 result_url 推断本地绝对路径（用于“保存到相册”）
-    results-dir: D:/Engineering/PhotoProject/Real-ESRGAN/api_results
+    results-dir: ${ESRGAN_RESULTS_DIR:}
   face-restore:
     base-url: http://127.0.0.1:5001
     restore-path: /restore

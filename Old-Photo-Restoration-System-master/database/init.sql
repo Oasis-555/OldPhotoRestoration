@@ -19,6 +19,8 @@ CREATE TABLE IF NOT EXISTS users (
     avatar_url VARCHAR(255) COMMENT '头像URL',
     bio VARCHAR(500) COMMENT '个人简介',
     is_active BOOLEAN NOT NULL DEFAULT true COMMENT '是否激活',
+    email_notification BOOLEAN NOT NULL DEFAULT true COMMENT '是否接收邮件通知',
+    ws_notification BOOLEAN NOT NULL DEFAULT true COMMENT '是否接收站内通知',
     create_time DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     update_time DATETIME ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
     last_login DATETIME COMMENT '最后登录时间',

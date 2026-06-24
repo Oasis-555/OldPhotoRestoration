@@ -5,6 +5,7 @@ import com.photorestoration.entity.RestorationTask;
 import com.photorestoration.repository.RestorationRecordRepository;
 import com.photorestoration.repository.RestorationTaskRepository;
 import com.photorestoration.service.RestorationService;
+import com.photorestoration.service.NotificationService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -50,6 +51,7 @@ public class RestorationServiceImpl implements RestorationService {
 
     private final RestorationRecordRepository restorationRecordRepository;
     private final RestorationTaskRepository restorationTaskRepository;
+    private final NotificationService notificationService;
 
     @Autowired(required = false)
     private CacheManager cacheManager;
@@ -266,6 +268,7 @@ public class RestorationServiceImpl implements RestorationService {
             restorationTaskRepository.save(task);
             evictRestorationCache();
 
+            notificationService.notifyRestorationCompleted(task.getUserId(), record);
             log.info("Restoration task completed successfully. TaskId: {}, RestorationId: {}", task.getTaskId(), task.getRestorationId());
         } catch (Exception e) {
             log.error("Restoration task error: {}", e.getMessage(), e);

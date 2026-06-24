@@ -26,6 +26,8 @@ public class User {
     private String avatarUrl;
     private String bio;
     private Boolean isActive;
+    private Boolean emailNotification;
+    private Boolean wsNotification;
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
     private LocalDateTime lastLogin;

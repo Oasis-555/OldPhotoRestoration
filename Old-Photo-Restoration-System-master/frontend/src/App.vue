@@ -45,17 +45,61 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/userStore'
 import { ArrowDown } from '@element-plus/icons-vue'
-import { ElMessage } from 'element-plus'
+import { ElMessage, ElNotification } from 'element-plus'
 
 const router = useRouter()
 const userStore = useUserStore()
 
 const isAuthenticated = computed(() => userStore.isAuthenticated)
 const userName = computed(() => userStore.userName)
+let notificationSocket = null
+let reconnectTimer = null
+
+const disconnectNotifications = () => {
+  if (reconnectTimer) {
+    clearTimeout(reconnectTimer)
+    reconnectTimer = null
+  }
+  if (notificationSocket) {
+    notificationSocket.onclose = null
+    notificationSocket.close()
+    notificationSocket = null
+  }
+}
+
+const connectNotifications = () => {
+  disconnectNotifications()
+  if (!userStore.token) return
+
+  const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws'
+  const host = window.location.hostname || 'localhost'
+  notificationSocket = new WebSocket(
+    `${protocol}://${host}:8080/api/ws/notifications?token=${encodeURIComponent(userStore.token)}`
+  )
+  notificationSocket.onmessage = (event) => {
+    try {
+      const message = JSON.parse(event.data)
+      ElNotification({
+        title: message.title || '任务通知',
+        message: message.content || '照片处理状态已更新',
+        type: 'success',
+        duration: 6000
+      })
+    } catch (error) {
+      console.warn('无法解析通知消息', error)
+    }
+  }
+  notificationSocket.onclose = () => {
+    notificationSocket = null
+    if (userStore.token) {
+      reconnectTimer = setTimeout(connectNotifications, 5000)
+    }
+  }
+}
 
 const logout = () => {
   userStore.logout()
@@ -72,7 +116,11 @@ onMounted(async () => {
     // token 存在时从服务端验证并刷新用户信息；失败则 loadUserInfo 内部会 logout
     await userStore.loadUserInfo().catch(() => {})
   }
+  connectNotifications()
 })
+
+watch(() => userStore.token, () => connectNotifications())
+onBeforeUnmount(disconnectNotifications)
 </script>
 
 <style lang="scss" scoped>

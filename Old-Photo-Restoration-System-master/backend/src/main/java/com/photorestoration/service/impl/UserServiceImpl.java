@@ -83,6 +83,8 @@ public class UserServiceImpl implements UserService {
                 .phone(request.getPhone())
                 .userType(request.getUserType())
                 .isActive(true)
+                .emailNotification(true)
+                .wsNotification(true)
                 .createTime(LocalDateTime.now())
                 .build();
 
@@ -162,6 +164,12 @@ public class UserServiceImpl implements UserService {
         }
         if (user.getAvatarUrl() != null) {
             existing.setAvatarUrl(user.getAvatarUrl());
+        }
+        if (user.getEmailNotification() != null) {
+            existing.setEmailNotification(user.getEmailNotification());
+        }
+        if (user.getWsNotification() != null) {
+            existing.setWsNotification(user.getWsNotification());
         }
 
         existing.setUpdateTime(LocalDateTime.now());

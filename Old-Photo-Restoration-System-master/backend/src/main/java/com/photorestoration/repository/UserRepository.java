@@ -25,13 +25,13 @@ public interface UserRepository {
     @Select("SELECT COUNT(1) > 0 FROM users WHERE LOWER(email) = LOWER(#{email})")
     boolean existsByEmailIgnoreCase(String email);
 
-    @Insert("INSERT INTO users (user_id, user_name, password, email, user_type, phone, avatar_url, bio, is_active, create_time, update_time, last_login) " +
-            "VALUES (#{userId}, #{userName}, #{password}, #{email}, #{userType}, #{phone}, #{avatarUrl}, #{bio}, #{isActive}, #{createTime}, #{updateTime}, #{lastLogin})")
+    @Insert("INSERT INTO users (user_id, user_name, password, email, user_type, phone, avatar_url, bio, is_active, email_notification, ws_notification, create_time, update_time, last_login) " +
+            "VALUES (#{userId}, #{userName}, #{password}, #{email}, #{userType}, #{phone}, #{avatarUrl}, #{bio}, #{isActive}, #{emailNotification}, #{wsNotification}, #{createTime}, #{updateTime}, #{lastLogin})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     int insert(User user);
 
     @Update("UPDATE users SET user_id=#{userId}, user_name=#{userName}, password=#{password}, email=#{email}, user_type=#{userType}, " +
-            "phone=#{phone}, avatar_url=#{avatarUrl}, bio=#{bio}, is_active=#{isActive}, create_time=#{createTime}, update_time=#{updateTime}, last_login=#{lastLogin} " +
+            "phone=#{phone}, avatar_url=#{avatarUrl}, bio=#{bio}, is_active=#{isActive}, email_notification=#{emailNotification}, ws_notification=#{wsNotification}, create_time=#{createTime}, update_time=#{updateTime}, last_login=#{lastLogin} " +
             "WHERE id=#{id}")
     int update(User user);
 

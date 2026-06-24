@@ -1,9 +1,16 @@
 $ErrorActionPreference = "Stop"
 
-$Root = "D:\Engineering\PhotoProject"
-$ModelPython = Join-Path $Root ".venv_models\Scripts\python.exe"
-$LamaPython = "D:\Anaconda\envs\lama-inpaint\python.exe"
-$SmolVlmPython = "D:\Anaconda\envs\smolvlm\python.exe"
+$Root = $PSScriptRoot
+$DefaultPython = Join-Path $Root ".venv_models\Scripts\python.exe"
+$ModelPython = if ($env:MODEL_PYTHON) { $env:MODEL_PYTHON } else { $DefaultPython }
+$LamaPython = if ($env:LAMA_PYTHON) { $env:LAMA_PYTHON } else { $ModelPython }
+$SmolVlmPython = if ($env:SMOLVLM_PYTHON) { $env:SMOLVLM_PYTHON } else { $ModelPython }
+
+foreach ($python in @($ModelPython, $LamaPython, $SmolVlmPython) | Select-Object -Unique) {
+    if (-not (Test-Path $python)) {
+        throw "Python interpreter not found: $python. Create .venv_models or set MODEL_PYTHON/LAMA_PYTHON/SMOLVLM_PYTHON."
+    }
+}
 
 function Test-PortListening {
     param([int]$Port)

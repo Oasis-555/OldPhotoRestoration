@@ -1,13 +1,14 @@
 @echo off
 setlocal
 
-set ROOT=D:\Engineering\PhotoProject
+set "ROOT=%~dp0"
 set INPAINT_MODEL=auto
-set LAMA_MODEL=%ROOT%\models\big-lama.pt
+set "LAMA_MODEL=%ROOT%models\big-lama.pt"
+if "%LAMA_PYTHON%"=="" (set "LAMA_PY=%ROOT%.venv_models\Scripts\python.exe") else (set "LAMA_PY=%LAMA_PYTHON%")
 
 cd /d "%ROOT%"
 echo Starting LaMa inpaint service on http://127.0.0.1:5002
 echo Keep this window open while recording the demo.
-"D:\Anaconda\envs\lama-inpaint\python.exe" "%ROOT%\inpaint_service.py"
+"%LAMA_PY%" "%ROOT%inpaint_service.py"
 
 pause

@@ -73,7 +73,7 @@ export const useUserStore = defineStore('user', () => {
     try {
       const response = await axios.get('/auth/me')
       const user = response.data.data
-      userId.value = user.id
+      userId.value = user.userId
       userName.value = user.userName
       email.value = user.email
       userType.value = user.userType

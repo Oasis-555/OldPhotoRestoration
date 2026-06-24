@@ -1,3 +1,6 @@
 @echo off
-cd /d D:\Engineering\PhotoProject
-"D:\Anaconda\envs\smolvlm\python.exe" "D:\Engineering\PhotoProject\vlm_server.py" > "D:\Engineering\PhotoProject\smolvlm_service.out.log" 2> "D:\Engineering\PhotoProject\smolvlm_service.err.log"
+setlocal
+set "ROOT=%~dp0"
+if "%SMOLVLM_PYTHON%"=="" (set "SMOLVLM_PY=%ROOT%.venv_models\Scripts\python.exe") else (set "SMOLVLM_PY=%SMOLVLM_PYTHON%")
+cd /d "%ROOT%"
+"%SMOLVLM_PY%" "%ROOT%vlm_server.py" > "%ROOT%smolvlm_service.out.log" 2> "%ROOT%smolvlm_service.err.log"

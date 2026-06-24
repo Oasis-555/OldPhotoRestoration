@@ -1,10 +1,17 @@
 @echo off
 setlocal
 
-set ROOT=D:\Engineering\PhotoProject
-set MODEL_PY=%ROOT%\.venv_models\Scripts\python.exe
-set LAMA_PY=D:\Anaconda\envs\lama-inpaint\python.exe
-set SMOLVLM_PY=D:\Anaconda\envs\smolvlm\python.exe
+set "ROOT=%~dp0"
+if "%MODEL_PYTHON%"=="" (set "MODEL_PY=%ROOT%.venv_models\Scripts\python.exe") else (set "MODEL_PY=%MODEL_PYTHON%")
+if "%LAMA_PYTHON%"=="" (set "LAMA_PY=%MODEL_PY%") else (set "LAMA_PY=%LAMA_PYTHON%")
+if "%SMOLVLM_PYTHON%"=="" (set "SMOLVLM_PY=%MODEL_PY%") else (set "SMOLVLM_PY=%SMOLVLM_PYTHON%")
+
+if not exist "%MODEL_PY%" (
+  echo Python interpreter not found: %MODEL_PY%
+  echo Create .venv_models or set MODEL_PYTHON, LAMA_PYTHON and SMOLVLM_PYTHON.
+  pause
+  exit /b 1
+)
 
 echo Starting model services...
 
